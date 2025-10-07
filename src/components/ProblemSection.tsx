@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { PhoneMissed, Clock, Settings } from "lucide-react";
 import businessChallenges from "@/assets/business-challenges.jpg";
+import GHLForm from "@/components/integrations/GHLForm";
 
 const ProblemSection = () => {
   const painPoints = [
@@ -58,37 +56,16 @@ const ProblemSection = () => {
               ))}
             </div>
 
-            {/* Lead Magnet Form */}
+            {/* Lead Magnet Form - GHL Integration */}
             <div className="bg-background rounded-lg p-6 shadow-lg border-2 border-gold/20">
               <h3 className="text-xl font-bold text-primary mb-4">
                 Get Our Free Guide: '5 Ways AI Can Save Your Business 12+ Hours Weekly'
               </h3>
-              <form className="space-y-4">
-                <Input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="h-12"
-                />
-                <Select>
-                  <SelectTrigger className="h-12">
-                    <SelectValue placeholder="What's your biggest challenge?" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="missed-calls">Missed Calls</SelectItem>
-                    <SelectItem value="time-management">Time Management</SelectItem>
-                    <SelectItem value="tech-confusion">Tech Confusion</SelectItem>
-                    <SelectItem value="all">All of the Above</SelectItem>
-                  </SelectContent>
-                </Select>
-                <Button 
-                  type="submit" 
-                  variant="gold" 
-                  size="lg" 
-                  className="w-full"
-                >
-                  Download Free Guide
-                </Button>
-              </form>
+              <GHLForm 
+                formType="problem"
+                submitText="Download Free Guide"
+                // webhookUrl="YOUR_GHL_WEBHOOK_URL" // Add your GHL webhook URL
+              />
             </div>
           </div>
         </div>

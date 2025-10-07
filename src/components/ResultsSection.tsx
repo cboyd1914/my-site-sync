@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Phone, DollarSign, Calendar as CalendarIcon, Clock } from "lucide-react";
+import GHLForm from "@/components/integrations/GHLForm";
 
 const ResultsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -136,7 +135,7 @@ const ResultsSection = () => {
           </div>
         </div>
 
-        {/* High-Intent Form */}
+        {/* High-Intent Form - GHL Integration */}
         <div className="max-w-2xl mx-auto bg-background rounded-lg p-8 shadow-xl border-2 border-gold/30">
           <h3 className="text-2xl font-bold text-primary mb-2 text-center">
             I Want These Results for My Business
@@ -144,32 +143,11 @@ const ResultsSection = () => {
           <p className="text-muted-foreground mb-6 text-center">
             Get your custom ROI projection in 24 hours
           </p>
-          <form className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Input 
-                placeholder="Your Name" 
-                className="h-12"
-              />
-              <Input 
-                type="email" 
-                placeholder="Email Address" 
-                className="h-12"
-              />
-            </div>
-            <Input 
-              type="tel" 
-              placeholder="Phone Number" 
-              className="h-12"
-            />
-            <Button 
-              type="submit" 
-              variant="gold" 
-              size="xl" 
-              className="w-full"
-            >
-              Get My Custom ROI Projection
-            </Button>
-          </form>
+          <GHLForm 
+            formType="results"
+            submitText="Get My Custom ROI Projection"
+            // webhookUrl="YOUR_GHL_WEBHOOK_URL" // Add your GHL webhook URL
+          />
         </div>
       </div>
     </section>

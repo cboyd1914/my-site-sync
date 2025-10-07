@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Calendar, Shield, TrendingUp, ArrowRight } from "lucide-react";
+import { Calendar, Shield, TrendingUp } from "lucide-react";
+import GHLCalendar from "@/components/integrations/GHLCalendar";
+import GHLForm from "@/components/integrations/GHLForm";
 
 const FinalCTA = () => {
   return (
@@ -43,7 +43,10 @@ const FinalCTA = () => {
               Choose Your Time Below
             </h3>
             
-            {/* Calendar Placeholder */}
+            {/* GHL Calendar - Uncomment and add your calendar URL */}
+            {/* <GHLCalendar calendarUrl="YOUR_GHL_CALENDAR_URL" /> */}
+            
+            {/* Calendar Placeholder - Remove when GHL calendar is added */}
             <div className="bg-secondary rounded-lg p-12 border-2 border-dashed border-border mb-6">
               <div className="text-center">
                 <Calendar className="h-16 w-16 text-gold mx-auto mb-4" />
@@ -68,7 +71,7 @@ const FinalCTA = () => {
           </div>
         </div>
 
-        {/* Alternative Contact Form */}
+        {/* Alternative Contact Form - GHL Integration */}
         <div className="max-w-2xl mx-auto">
           <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-lg p-8">
             <h3 className="text-2xl font-bold text-primary-foreground mb-4 text-center">
@@ -78,45 +81,11 @@ const FinalCTA = () => {
               Fill out the form below and we'll reach out within 24 hours
             </p>
             
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input 
-                  placeholder="Your Name" 
-                  className="bg-primary-foreground text-foreground h-12"
-                />
-                <Input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  className="bg-primary-foreground text-foreground h-12"
-                />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input 
-                  type="tel" 
-                  placeholder="Phone Number" 
-                  className="bg-primary-foreground text-foreground h-12"
-                />
-                <Select>
-                  <SelectTrigger className="bg-primary-foreground text-foreground h-12">
-                    <SelectValue placeholder="Best time to call" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="morning">Morning (9am-12pm)</SelectItem>
-                    <SelectItem value="afternoon">Afternoon (12pm-5pm)</SelectItem>
-                    <SelectItem value="evening">Evening (5pm-8pm)</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <Button 
-                type="submit" 
-                variant="gold" 
-                size="xl" 
-                className="w-full"
-              >
-                Have Someone Call Me
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </form>
+            <GHLForm 
+              formType="final-cta"
+              submitText="Have Someone Call Me"
+              // webhookUrl="YOUR_GHL_WEBHOOK_URL" // Add your GHL webhook URL
+            />
           </div>
         </div>
 

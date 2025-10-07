@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Calendar, PhoneCall, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
+import GHLForm from "@/components/integrations/GHLForm";
+import GHLCalendar from "@/components/integrations/GHLCalendar";
 
 const Hero = () => {
   return (
@@ -54,44 +55,21 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Lead Capture Form */}
+          {/* GHL Calendar Widget OR Lead Capture Form */}
           <div className="bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-lg p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-primary-foreground mb-6">
               Book Your Free 30-Minute AI Assessment
             </h3>
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input 
-                  placeholder="Your Name" 
-                  className="bg-primary-foreground text-foreground h-12"
-                />
-                <Input 
-                  placeholder="Business Name" 
-                  className="bg-primary-foreground text-foreground h-12"
-                />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  className="bg-primary-foreground text-foreground h-12"
-                />
-                <Input 
-                  type="tel" 
-                  placeholder="Phone Number" 
-                  className="bg-primary-foreground text-foreground h-12"
-                />
-              </div>
-              <Button 
-                type="submit" 
-                variant="gold" 
-                size="xl" 
-                className="w-full"
-              >
-                Send Me More Information
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </form>
+            
+            {/* Uncomment and add your GHL calendar URL to enable calendar booking */}
+            {/* <GHLCalendar calendarUrl="YOUR_GHL_CALENDAR_URL" /> */}
+            
+            {/* Lead capture form - connects to GHL via webhook */}
+            <GHLForm 
+              formType="hero"
+              submitText="Send Me More Information"
+              // webhookUrl="YOUR_GHL_WEBHOOK_URL" // Add your GHL webhook URL here
+            />
           </div>
 
           {/* Social Proof */}
