@@ -12,9 +12,9 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      {/* GoHighLevel Chat Widget - Add your Location ID to activate */}
+      {/* GoHighLevel Chat Widget */}
       <GHLChatWidget 
-        // locationId="YOUR_GHL_LOCATION_ID"
+        locationId="2fYU3YOt8Ifm8e0UpwzP"
         config={{
           position: 'bottom-right',
           primaryColor: '#C5A572', // Gold color from brand

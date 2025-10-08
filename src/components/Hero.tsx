@@ -61,15 +61,8 @@ const Hero = () => {
               Book Your Free 30-Minute AI Assessment
             </h3>
             
-            {/* Uncomment and add your GHL calendar URL to enable calendar booking */}
-            {/* <GHLCalendar calendarUrl="YOUR_GHL_CALENDAR_URL" /> */}
-            
-            {/* Lead capture form - connects to GHL via webhook */}
-            <GHLForm 
-              formType="hero"
-              submitText="Send Me More Information"
-              // webhookUrl="YOUR_GHL_WEBHOOK_URL" // Add your GHL webhook URL here
-            />
+            {/* GHL Calendar booking widget */}
+            <GHLCalendar calendarUrl="https://link.aileadbuilder.com/widget/booking/C80at2JpoS6R6z1qtua8" />
           </div>
 
           {/* Social Proof */}

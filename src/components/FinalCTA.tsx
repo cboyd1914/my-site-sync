@@ -43,31 +43,8 @@ const FinalCTA = () => {
               Choose Your Time Below
             </h3>
             
-            {/* GHL Calendar - Uncomment and add your calendar URL */}
-            {/* <GHLCalendar calendarUrl="YOUR_GHL_CALENDAR_URL" /> */}
-            
-            {/* Calendar Placeholder - Remove when GHL calendar is added */}
-            <div className="bg-secondary rounded-lg p-12 border-2 border-dashed border-border mb-6">
-              <div className="text-center">
-                <Calendar className="h-16 w-16 text-gold mx-auto mb-4" />
-                <p className="text-muted-foreground mb-2">
-                  Calendar booking widget integration
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  (GoHighLevel calendar will be embedded here)
-                </p>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <Button variant="gold" size="xl" className="mb-4">
-                <Calendar className="mr-2 h-5 w-5" />
-                Book Your Free 30-Minute Assessment
-              </Button>
-              <p className="text-sm text-muted-foreground">
-                Most popular times: Weekday mornings & early afternoons
-              </p>
-            </div>
+            {/* GHL Calendar */}
+            <GHLCalendar calendarUrl="https://link.aileadbuilder.com/widget/booking/C80at2JpoS6R6z1qtua8" />
           </div>
         </div>
 
