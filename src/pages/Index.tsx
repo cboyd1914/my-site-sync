@@ -1,37 +1,28 @@
-import GHLChatWidget from "@/components/integrations/GHLChatWidget";
-import Hero from "@/components/Hero";
-import ProblemSection from "@/components/ProblemSection";
-import ApexSystem from "@/components/ApexSystem";
-import ResultsSection from "@/components/ResultsSection";
-import FounderStory from "@/components/FounderStory";
-import ServicesSection from "@/components/ServicesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import FinalCTA from "@/components/FinalCTA";
-import Footer from "@/components/Footer";
-
-const Index = () => {
-  return (
-    <div className="min-h-screen">
-      {/* GoHighLevel Chat Widget */}
-      <GHLChatWidget 
-        locationId="2fYU3YOt8Ifm8e0UpwzP"
-        config={{
-          position: 'bottom-right',
-          primaryColor: '#C5A572', // Gold color from brand
-        }}
-      />
-      
-      <Hero />
-      <ProblemSection />
-      <ApexSystem />
-      <ResultsSection />
-      <FounderStory />
-      <ServicesSection />
-      <TestimonialsSection />
-      <FinalCTA />
-      <Footer />
-    </div>
-  );
-};
-
-export default Index;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional: Link to a CSS file for styling -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to The Apex Resolution</h1>
+        <p>Your tagline or a brief description goes here.</p>
+    </header>
+    <main>
+        <section>
+            <h2>About Us</h2>
+            <p>Provide information about your project or business.</p>
+        </section>
+        <section>
+            <h2>Contact</h2>
+            <p>Include your contact information or a contact form.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 The Apex Resolution. All rights reserved.</p>
+    </footer>
+</body>
+</html>
