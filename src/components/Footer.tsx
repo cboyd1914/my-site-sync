@@ -105,10 +105,10 @@ const Footer = () => {
                 <div>
                   <p className="text-primary-foreground/80 text-sm mb-1">Phone</p>
                   <a 
-                    href="tel:+18165550100" 
+                    href="tel:+18166529975" 
                     className="text-primary-foreground hover:text-gold transition-colors font-semibold"
                   >
-                    (816) 555-0100
+                    (816)652-9975
                   </a>
                   <p className="text-primary-foreground/60 text-xs mt-1">
                     Call and experience our AI Voice Bot

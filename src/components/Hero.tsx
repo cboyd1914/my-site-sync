@@ -51,7 +51,7 @@ const Hero = () => {
               className="w-full sm:w-auto bg-primary-foreground hover:bg-primary-foreground/90 text-primary border-0"
             >
               <PhoneCall className="mr-2 h-5 w-5" />
-              Call Now: (816) 555-0100
+              Call Now: (816)652-9975
             </Button>
           </div>
 
