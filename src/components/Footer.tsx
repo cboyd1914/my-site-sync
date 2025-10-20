@@ -151,7 +151,7 @@ const Footer = () => {
                 Privacy Policy
               </a>
               <a 
-                href="#terms" 
+                href="/terms" 
                 className="text-primary-foreground/60 hover:text-gold transition-colors"
               >
                 Terms of Service
