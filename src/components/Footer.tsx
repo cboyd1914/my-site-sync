@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, MessageCircle } from "lucide-react";
 
 const Footer = () => {
@@ -144,18 +145,18 @@ const Footer = () => {
               © {currentYear} Apex Resolution. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <a 
-                href="/privacy" 
+              <Link 
+                to="/privacy" 
                 className="text-primary-foreground/60 hover:text-gold transition-colors"
               >
                 Privacy Policy
-              </a>
-              <a 
-                href="/terms" 
+              </Link>
+              <Link 
+                to="/terms" 
                 className="text-primary-foreground/60 hover:text-gold transition-colors"
               >
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
           <p className="text-primary-foreground/60 text-sm text-center mt-4 italic">
