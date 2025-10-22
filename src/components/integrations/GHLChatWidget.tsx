@@ -5,7 +5,7 @@ interface GHLChatWidgetProps {
    * GoHighLevel Location ID
    * Find this in your GHL account: Settings > Business Profile
    */
-  locationId?: "2fYU3YOt8Ifm8e0UpwzP";
+  locationId?: string;
   
   /**
    * Chat widget configuration
