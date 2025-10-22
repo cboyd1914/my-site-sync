@@ -59,9 +59,9 @@ const FinalCTA = () => {
             </p>
             
             <GHLForm 
+              webhookUrl={import.meta.env.VITE_GHL_WEBHOOK_URL}
               formType="final-cta"
               submitText="Have Someone Call Me"
-              // webhookUrl="YOUR_GHL_WEBHOOK_URL" // Add your GHL webhook URL
             />
           </div>
         </div>

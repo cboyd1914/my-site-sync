@@ -62,9 +62,9 @@ const ProblemSection = () => {
                 Get Our Free Guide: '5 Ways AI Can Save Your Business 12+ Hours Weekly'
               </h3>
               <GHLForm 
+                webhookUrl={import.meta.env.VITE_GHL_WEBHOOK_URL}
                 formType="problem"
                 submitText="Download Free Guide"
-                // webhookUrl="YOUR_GHL_WEBHOOK_URL" // Add your GHL webhook URL
               />
             </div>
           </div>

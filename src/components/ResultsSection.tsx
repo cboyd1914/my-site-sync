@@ -144,9 +144,9 @@ const ResultsSection = () => {
             Get your custom ROI projection in 24 hours
           </p>
           <GHLForm 
+            webhookUrl={import.meta.env.VITE_GHL_WEBHOOK_URL}
             formType="results"
             submitText="Get My Custom ROI Projection"
-            // webhookUrl="YOUR_GHL_WEBHOOK_URL" // Add your GHL webhook URL
           />
         </div>
       </div>
