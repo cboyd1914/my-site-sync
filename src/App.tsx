@@ -14,7 +14,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 const queryClient = new QueryClient();
 
 function App() {
-  // GoHighLevel external tracking
+  // GHL external tracking
   useEffect(() => {
     if (!document.querySelector('script[src="https://link.aileadbuilder.com/js/external-tracking.js"]')) {
       const script = document.createElement("script");
