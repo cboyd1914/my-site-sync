@@ -14,20 +14,13 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 const queryClient = new QueryClient();
 
 function App() {
-  // GHL external tracking script
+  // GoHighLevel external tracking
   useEffect(() => {
-    if (
-      !document.querySelector(
-        'script[src="https://link.aileadbuilder.com/js/external-tracking.js"]'
-      )
-    ) {
+    if (!document.querySelector('script[src="https://link.aileadbuilder.com/js/external-tracking.js"]')) {
       const script = document.createElement("script");
       script.src = "https://link.aileadbuilder.com/js/external-tracking.js";
       script.async = true;
-      script.setAttribute(
-        "data-tracking-id",
-        "tk_0372aaa78a9145bcb21f58916bbf1a4"
-      );
+      script.setAttribute("data-tracking-id", "tk_0372aaa78a9145bcb21f58916bbf1a4");
       document.body.appendChild(script);
     }
   }, []);
