@@ -32,9 +32,11 @@ jobs:
         run: npm ci
         
       - name: Build
-        run: npm run build
-          env:
+  run: npm run build
+  env:
     VITE_GHL_WEBHOOK_URL: ${{ secrets.VITE_GHL_WEBHOOK_URL }}
+
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
