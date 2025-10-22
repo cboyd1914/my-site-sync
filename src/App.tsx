@@ -9,6 +9,35 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
+import { useEffect } from "react";
+
+function App() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://link.aileadbuilder.com/js/external-tracking.js";
+    script.async = true;
+    script.setAttribute(
+      "data-tracking-id",
+      "tk_0372aaa78a9145bcb21f58916bbf1a4"
+    );
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <>
+      {/* Your existing components */}
+      <main>
+        {/* your routes and content here */}
+      </main>
+    </>
+  );
+}
+
+export default App;
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
