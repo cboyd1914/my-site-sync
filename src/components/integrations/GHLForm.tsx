@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
@@ -35,6 +37,8 @@ const heroFormSchema = z.object({
   businessName: z.string().min(2, "Business name required").max(100),
   email: z.string().email("Invalid email address").max(255),
   phone: z.string().regex(/^[\d\s\-\+\(\)]+$/, "Invalid phone number").min(10).max(20),
+  a2pTransactional: z.literal("on", { errorMap: () => ({ message: "You must consent to transactional messages." }) }),
+  a2pMarketing: z.literal("on", { errorMap: () => ({ message: "You must consent to marketing messages." }) }),
 });
 
 const problemFormSchema = z.object({
@@ -46,6 +50,8 @@ const resultsFormSchema = z.object({
   name: z.string().min(2, "Name required").max(100),
   email: z.string().email("Invalid email address").max(255),
   phone: z.string().regex(/^[\d\s\-\+\(\)]+$/, "Invalid phone number").min(10).max(20),
+  a2pTransactional: z.literal("on", { errorMap: () => ({ message: "You must consent to transactional messages." }) }),
+  a2pMarketing: z.literal("on", { errorMap: () => ({ message: "You must consent to marketing messages." }) }),
 });
 
 const finalCTAFormSchema = z.object({
@@ -284,6 +290,25 @@ const GHLForm = ({ webhookUrl, formType, submitText, className = "" }: GHLFormPr
   return (
     <form onSubmit={handleSubmit} className={`space-y-4 ${className}`}>
       {renderFormFields()}
+      
+      {/* A2P Checkboxes - Only for forms that collect phone numbers */}
+      {(formType === 'hero' || formType === 'results' || formType === 'final-cta') && (
+        <div className="space-y-3 pt-2">
+          <div className="flex items-start space-x-2">
+            <Checkbox id="a2pTransactional" name="a2pTransactional" required className="mt-1" />
+            <Label htmlFor="a2pTransactional" className="text-xs font-normal text-muted-foreground leading-relaxed">
+              By checking this box, I consent to receive transactional messages related to my account, orders, or services I have requested. These messages may include appointment reminders, order confirmations, and account notifications among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out.
+            </Label>
+          </div>
+          <div className="flex items-start space-x-2">
+            <Checkbox id="a2pMarketing" name="a2pMarketing" required className="mt-1" />
+            <Label htmlFor="a2pMarketing" className="text-xs font-normal text-muted-foreground leading-relaxed">
+              By checking this box, I consent to receive marketing and promotional messages, including special offers, discounts, new product updates among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out.
+            </Label>
+          </div>
+        </div>
+      )}
+
       <Button 
         type="submit" 
         variant="gold" 
