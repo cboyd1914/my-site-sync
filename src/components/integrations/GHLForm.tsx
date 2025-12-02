@@ -110,7 +110,7 @@ const GHLForm = ({ webhookUrl, formType, submitText, className = "" }: GHLFormPr
       const GHL_LOCATION_ID = "2FYU3YOt8Ifm8e0UpwzP";
       const GHL_FORM_ID = "btwZDXCHpF9ntq7Rm203";
 
-      const GHL_API_URL = `https://services.leadconnectorhq.com/forms/submit/${GHL_FORM_ID}?location_id=${GHL_LOCATION_ID}`;
+     const GHL_API_URL = `https://services.leadconnectorhq.com/forms/submit/${GHL_FORM_ID}?location_id=${GHL_LOCATION_ID}`;
 
       const payload = {
         ...validatedData,
