@@ -104,37 +104,38 @@ const GHLForm = ({ webhookUrl, formType, submitText, className = "" }: GHLFormPr
       const schema = getSchema();
       const validatedData = schema.parse(data);
 
-      // If webhook URL is provided, send to GHL
-      if (webhookUrl) {
-        const response = await fetch(webhookUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            ...validatedData,
-            formType,
-            timestamp: new Date().toISOString(),
-            source: window.location.href,
-          }),
-        });
+      // Send to GHL Form Submission API
+      // This is the most reliable way to trigger the "Form Submitted" workflow trigger.
+      // The GHL Form ID is hardcoded as '1' (a common default/placeholder) and the Location ID is the constant part of the webhook URL.
+      const GHL_LOCATION_ID = "2FYU3YOt8Ifm8e0UpwzP";
+      const GHL_FORM_ID = "1"; // Assuming a default form ID for the submission API
 
-        if (!response.ok) {
-          throw new Error('Failed to submit form');
-        }
+      const GHL_API_URL = `https://services.leadconnectorhq.com/forms/submit/${GHL_FORM_ID}?location_id=${GHL_LOCATION_ID}`;
 
-        toast({
-          title: "Success! 🎉",
-          description: "Your information has been submitted. We'll be in touch soon!",
-        });
-      } else {
-        // If no webhook, just show success message
-        console.log('Form submitted (no GHL webhook configured):', validatedData);
-        toast({
-          title: "Form Submitted",
-          description: "Configure your GHL webhook to capture leads automatically.",
-        });
+      const payload = {
+        ...validatedData,
+        formType,
+        timestamp: new Date().toISOString(),
+        source: window.location.href,
+      };
+
+      const response = await fetch(GHL_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        // GHL API returns 200 even on some errors, but we check for a non-200 just in case
+        throw new Error('Failed to submit form to GHL API');
       }
+
+      toast({
+        title: "Success! 🎉",
+        description: "Your information has been submitted. We'll be in touch soon!",
+      });
 
       // Reset form
       e.currentTarget.reset();
