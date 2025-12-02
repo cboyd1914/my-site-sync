@@ -108,7 +108,7 @@ const GHLForm = ({ webhookUrl, formType, submitText, className = "" }: GHLFormPr
       // This is the most reliable way to trigger the "Form Submitted" workflow trigger.
       // The GHL Form ID is hardcoded as '1' (a common default/placeholder) and the Location ID is the constant part of the webhook URL.
       const GHL_LOCATION_ID = "2FYU3YOt8Ifm8e0UpwzP";
-      const GHL_FORM_ID = "1"; // Assuming a default form ID for the submission API
+      const GHL_FORM_ID = "btwZDXCHpF9ntq7Rm203";
 
       const GHL_API_URL = `https://services.leadconnectorhq.com/forms/submit/${GHL_FORM_ID}?location_id=${GHL_LOCATION_ID}`;
 
