@@ -39,11 +39,15 @@ const heroFormSchema = z.object({
   phone: z.string().regex(/^[\d\s\-\+\(\)]+$/, "Invalid phone number").min(10).max(20),
   a2pTransactional: z.literal("on", { errorMap: () => ({ message: "You must consent to transactional messages." }) }),
   a2pMarketing: z.literal("on", { errorMap: () => ({ message: "You must consent to marketing messages." }) }),
+  privacyPolicy: z.literal("on", { errorMap: () => ({ message: "You must agree to the Privacy Policy." }) }),
+  termsOfService: z.literal("on", { errorMap: () => ({ message: "You must agree to the Terms of Service." }) }),
 });
 
 const problemFormSchema = z.object({
   email: z.string().email("Invalid email address").max(255),
   challenge: z.enum(['missed-calls', 'time-management', 'tech-confusion', 'all']),
+  privacyPolicy: z.literal("on", { errorMap: () => ({ message: "You must agree to the Privacy Policy." }) }),
+  termsOfService: z.literal("on", { errorMap: () => ({ message: "You must agree to the Terms of Service." }) }),
 });
 
 const resultsFormSchema = z.object({
@@ -52,6 +56,8 @@ const resultsFormSchema = z.object({
   phone: z.string().regex(/^[\d\s\-\+\(\)]+$/, "Invalid phone number").min(10).max(20),
   a2pTransactional: z.literal("on", { errorMap: () => ({ message: "You must consent to transactional messages." }) }),
   a2pMarketing: z.literal("on", { errorMap: () => ({ message: "You must consent to marketing messages." }) }),
+  privacyPolicy: z.literal("on", { errorMap: () => ({ message: "You must agree to the Privacy Policy." }) }),
+  termsOfService: z.literal("on", { errorMap: () => ({ message: "You must agree to the Terms of Service." }) }),
 });
 
 const finalCTAFormSchema = z.object({
@@ -59,6 +65,8 @@ const finalCTAFormSchema = z.object({
   email: z.string().email("Invalid email address").max(255),
   phone: z.string().regex(/^[\d\s\-\+\(\)]+$/, "Invalid phone number").min(10).max(20),
   bestTime: z.enum(['morning', 'afternoon', 'evening']),
+  privacyPolicy: z.literal("on", { errorMap: () => ({ message: "You must agree to the Privacy Policy." }) }),
+  termsOfService: z.literal("on", { errorMap: () => ({ message: "You must agree to the Terms of Service." }) }),
 });
 
 const GHLForm = ({ webhookUrl, formType, submitText, className = "" }: GHLFormProps) => {
@@ -290,6 +298,22 @@ const GHLForm = ({ webhookUrl, formType, submitText, className = "" }: GHLFormPr
   return (
     <form onSubmit={handleSubmit} className={`space-y-4 ${className}`}>
       {renderFormFields()}
+      
+      {/* Privacy Policy and Terms of Service Checkboxes - Required for all forms */}
+      <div className="space-y-3 pt-2">
+        <div className="flex items-start space-x-2">
+          <Checkbox id="privacyPolicy" name="privacyPolicy" required className="mt-1" />
+          <Label htmlFor="privacyPolicy" className="text-xs font-normal text-muted-foreground leading-relaxed">
+            I have read and agree to the <a href="/privacy-policy" target="_blank" className="underline font-medium">Privacy Policy</a>.
+          </Label>
+        </div>
+        <div className="flex items-start space-x-2">
+          <Checkbox id="termsOfService" name="termsOfService" required className="mt-1" />
+          <Label htmlFor="termsOfService" className="text-xs font-normal text-muted-foreground leading-relaxed">
+            I have read and agree to the <a href="/terms-of-service" target="_blank" className="underline font-medium">Terms of Service</a>.
+          </Label>
+        </div>
+      </div>
       
       {/* A2P Checkboxes - Only for forms that collect phone numbers */}
       {(formType === 'hero' || formType === 'results' || formType === 'final-cta') && (
