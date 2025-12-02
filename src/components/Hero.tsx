@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, PhoneCall, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 import GHLForm from "@/components/integrations/GHLForm";
-import GHLCalendar from "@/components/integrations/GHLCalendar";
+
 
 const Hero = () => {
   return (
@@ -61,8 +61,12 @@ const Hero = () => {
               Book Your Free 30-Minute AI Assessment
             </h3>
             
-            {/* GHL Calendar booking widget */}
-            <GHLCalendar calendarUrl="https://link.aileadbuilder.com/widget/booking/C80at2JpoS6R6z1qtua8" />
+            {/* Custom GHL Form for compliance */}
+            <GHLForm 
+              webhookUrl={import.meta.env.VITE_GHL_WEBHOOK_URL}
+              formType="hero-calendar"
+              submitText="Book Appointment"
+            />
           </div>
 
           {/* Social Proof */}

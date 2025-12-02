@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, Shield, TrendingUp } from "lucide-react";
-import GHLCalendar from "@/components/integrations/GHLCalendar";
+
 import GHLForm from "@/components/integrations/GHLForm";
 
 const FinalCTA = () => {
@@ -43,8 +43,12 @@ const FinalCTA = () => {
               Choose Your Time Below
             </h3>
             
-            {/* GHL Calendar */}
-            <GHLCalendar calendarUrl="https://link.aileadbuilder.com/widget/booking/C80at2JpoS6R6z1qtua8" />
+            {/* Custom GHL Form for compliance */}
+            <GHLForm 
+              webhookUrl={import.meta.env.VITE_GHL_WEBHOOK_URL}
+              formType="final-calendar"
+              submitText="Book Appointment"
+            />
           </div>
         </div>
 
