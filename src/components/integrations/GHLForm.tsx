@@ -352,13 +352,13 @@ const GHLForm = ({ webhookUrl, formType, submitText, className = "" }: GHLFormPr
         <div className="flex items-start space-x-2">
           <Checkbox id="privacyPolicy" name="privacyPolicy" required className="mt-1" />
           <Label htmlFor="privacyPolicy" className="text-xs font-normal text-muted-foreground leading-relaxed">
-            I have read and agree to the <a href="/privacy" target="_blank" className="underline font-medium">Privacy Policy</a>.
+            I have read and agree to the <a href="https://theapexresolution.com/privacy" target="_blank" className="underline font-medium">Privacy Policy</a>.
           </Label>
         </div>
         <div className="flex items-start space-x-2">
           <Checkbox id="termsOfService" name="termsOfService" required className="mt-1" />
           <Label htmlFor="termsOfService" className="text-xs font-normal text-muted-foreground leading-relaxed">
-            I have read and agree to the <a href="/terms" target="_blank" className="underline font-medium">Terms of Service</a>.
+            I have read and agree to the <a href="https://theapexresolution.com/terms" target="_blank" className="underline font-medium">Terms of Service</a>.
           </Label>
         </div>
       </div>
