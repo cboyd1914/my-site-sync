@@ -25,7 +25,7 @@ window.addEventListener('scroll', () => {
 // Brand Check Form Handler
 (function() {
     // The published funnel backend URL
-    const FUNNEL_API_URL = 'https://carlfunnel-ppjr5nlk.manus.space/api/trpc/brandAudit.submitRequest';
+    const FUNNEL_API_URL = 'https://funnel.theapexresolution.com/api/trpc/brandAudit.submitRequest';
 
     const form = document.getElementById('brandCheckForm');
     const submitBtn = document.getElementById('brandCheckSubmit');
